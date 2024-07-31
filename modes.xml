@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modes>
+
+  <!-- glb → nld -->
+
+  <mode name="glb-nld" install="yes" gendebug="yes">
+    <pipeline>
+
+      <program name="lt-proc -w">
+        <file name="glb-nld.automorf.bin"/>
+      </program>
+
+
+      <program name="cg-proc -w">
+        <file name="glb-nld.rlx.bin"/>
+      </program>
+      <program name="apertium-tagger -g $2">
+        <file name="glb-nld.prob"/>
+      </program>
+      <program name="lsx-proc">
+        <file name="glb-nld.autoseq.bin"/>
+      </program>
+      <program name="apertium-pretransfer"/>
+      <program name="lt-proc -b">
+        <file name="glb-nld.autobil.bin"/>
+      </program>
+      <program name="lrx-proc -m">
+        <file name="glb-nld.autolex.bin"/>
+      </program>
+      <program name="apertium-anaphora">
+        <file name="apertium-glb-nld.glb-nld.arx"/>
+      </program>
+
+
+      <program name="rtx-proc -a">
+        <file name="glb-nld.rtx.bin"/>
+      </program>
+      <program name="lsx-proc" debug-suff="revautoseq">
+        <file name="glb-nld.revautoseq.bin"/>
+      </program>
+
+      <program name="lt-proc $1">
+        <file name="glb-nld.autogen.bin"/>
+      </program>
+      <program name="lt-proc -p">
+        <file name="glb-nld.autopgen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <!-- nld → glb -->
+
+  <mode name="nld-glb" install="yes" gendebug="yes">
+    <pipeline>
+
+      <program name="lt-proc -w">
+        <file name="nld-glb.automorf.bin"/>
+      </program>
+
+
+      <program name="cg-proc -w">
+        <file name="nld-glb.rlx.bin"/>
+      </program>
+      <program name="apertium-tagger -g $2">
+        <file name="nld-glb.prob"/>
+      </program>
+
+      <program name="lsx-proc">
+        <file name="nld-glb.autoseq.bin"/>
+      </program>
+      <program name="apertium-pretransfer"/>
+      <program name="lt-proc -b">
+        <file name="nld-glb.autobil.bin"/>
+      </program>
+      <program name="lrx-proc -m">
+        <file name="nld-glb.autolex.bin"/>
+      </program>
+      <program name="apertium-anaphora">
+        <file name="apertium-glb-nld.nld-glb.arx"/>
+      </program>
+
+
+      <program name="rtx-proc -a">
+        <file name="nld-glb.rtx.bin"/>
+      </program>
+      <program name="lsx-proc" debug-suff="revautoseq">
+        <file name="nld-glb.revautoseq.bin"/>
+      </program>
+
+      <program name="lt-proc $1">
+        <file name="nld-glb.autogen.bin"/>
+      </program>
+      <program name="lt-proc -p">
+        <file name="nld-glb.autopgen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+</modes>
+

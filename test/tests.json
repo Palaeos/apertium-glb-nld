@@ -1,0 +1,10 @@
+{
+    "glb-nld": {
+        "input": "glb-nld-input.txt",
+        "mode": "glb-nld"
+    },
+    "nld-glb": {
+        "input": "nld-glb-input.txt",
+        "mode": "nld-glb"
+    }
+}
