@@ -1,12 +1,12 @@
-glb and Dutch: `apertium-glb-nld`
+Globasa and Dutch: `apertium-glb-nld`
 ===============================================================================
 
-This is an Apertium language pair for translating between glb and
+This is an Apertium language pair for translating between Globasa and
 Dutch. What you can use this language package for:
 
-* Translating between glb and Dutch
-* Morphological analysis of glb and Dutch
-* Part-of-speech tagging of glb and Dutch
+* Translating between Globasa and Dutch
+* Morphological analysis of Globasa and Dutch
+* Part-of-speech tagging of Globasa and Dutch
 
 For information on the latter two points, see subheading "For more
 information" below.
@@ -72,13 +72,13 @@ Files and data
 
 * [`apertium-glb-nld.glb-nld.dix`](apertium-glb-nld.glb-nld.dix) - Bilingual dictionary
 * [`apertium-glb-nld.glb-nld.rtx`](apertium-glb-nld.glb-nld.rtx) - Structural transfer rules for translating into Dutch
-* [`apertium-glb-nld.nld-glb.rtx`](apertium-glb-nld.nld-glb.rtx) - Structural transfer rules for translating into glb
+* [`apertium-glb-nld.nld-glb.rtx`](apertium-glb-nld.nld-glb.rtx) - Structural transfer rules for translating into Globasa
 * [`apertium-glb-nld.glb-nld.lrx`](apertium-glb-nld.glb-nld.lrx) - Lexical selection rules for translating into Dutch
-* [`apertium-glb-nld.nld-glb.lrx`](apertium-glb-nld.nld-glb.lrx) - Lexical selection rules for translating into glb
+* [`apertium-glb-nld.nld-glb.lrx`](apertium-glb-nld.nld-glb.lrx) - Lexical selection rules for translating into Globasa
 * [`apertium-glb-nld.glb-nld.lsx`](apertium-glb-nld.glb-nld.lsx) - Discontiguous multiword rules for translating into Dutch
-* [`apertium-glb-nld.nld-glb.lsx`](apertium-glb-nld.nld-glb.lsx) - Discontiguous multiword rules for translating into glb
+* [`apertium-glb-nld.nld-glb.lsx`](apertium-glb-nld.nld-glb.lsx) - Discontiguous multiword rules for translating into Globasa
 * [`apertium-glb-nld.glb-nld.arx`](apertium-glb-nld.glb-nld.arx) - Anaphora resolution rules for translating into Dutch
-* [`apertium-glb-nld.nld-glb.arx`](apertium-glb-nld.nld-glb.arx) - Anaphora resolution rules for translating into glb
+* [`apertium-glb-nld.nld-glb.arx`](apertium-glb-nld.nld-glb.arx) - Anaphora resolution rules for translating into Globasa
 * [`modes.xml`](modes.xml) - Translation modes
 
 For more information

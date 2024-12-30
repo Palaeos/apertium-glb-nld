@@ -2,27 +2,109 @@
 !! ATTRIBUTE CATEGORIES
 !!!!!!!!!!!!!!!
 
-number = (ND sg) sg pl sp ND;
-gender = (GD m) m f mf GD;
-det_type = def ind dem itg;
-tense = pres past fut ifi pri fti;
+number = sg pl sp ND;
+gender_DEU = m f mf nt GD;
+gender_GLB = m f ut nt GD;
+det_type = def ind dem itg pos qnt;
+definite = def ind;
+copula = vbser vblex;
+haver = vbhaver vblex;
+articles = de een;
+degree = comp sup;
+person = p1 p2 p3;
+GLB_tense = pres past fut cni imp;
+finite = pii pri prs [GLB_tense];
+modal = kunnen zullen moeten willen;
+aspect = prog impf pros;
+tense = [finite] [GLB_tense] inf pprs ger pp;
+out_tense = pprs ger pp;
+preflist = aw ex per;
+
+ing = pprs ger;
+ptc_type = pprs pp;
+
+!tense_PP = fut cni;
+tense_PP = pres past;
 
 !!!!!!!!!!!!!!!
 !! OUTPUT PATTERNS
 !!!!!!!!!!!!!!!
 
-n: _.gender.number;
-adj: _.gender.number;
-det_default: _.det_type;
-det_def: _.det_type.number;
+n: _;
+np: _;
+pfx: _;
+prn: _.person.gender_GLB.number;
+det_pos: _.<pos>.person.gender_GLB.number;
+det_pos_cor: _.<pos>;
+det_qnt_cor: _.<qnt>;
+det_def: _;
+
+
+
+posadj: _.<pos>.person.gender_GLB.number;
+adj: _;
+num: _;
+quant: _;
+pr: _;
+adv: _;
+vbmod: _;
+
+cnjsub: _;
+
+vblex: _.out_tense;
+vbinf: _.<inf>;
+prepv: _.tense;
+copula: _.tense; 
+verb: _.tense;
+v: _.tense;
+vv: _.tense;
+
+vbser: _;
+vbdo:  _;
+vbhaver: _;
+
+vbpr: _.GLB_tense.aspect;
+
+
+
+nou: _;
+
+! number is an output of the noun phrase so that the information can be used for determining the right number before in the Globasa.
 
 NP: _.number;
+npcomp: _.number;
+NNP: _;
+CNP: _;
+DP: _;
+NOM: _;
+CONJ: _;
+
+AP: _;
+AJ: _.degree;
+AJC: _;
+AVP: _;
+
+! tense is an output of the verbal phrases so that the information can be used for determining the tense marker in the Globasa.
+
+WERDEN: _.tense;
+BE: _.tense;
+HAVE: _.tense;
+VP: _.tense;
+PVP: _.tense;
+DVP: _;
+PRN: _.person.gender_GLB.number;
+S: _;
+
+REL: _;
 
 !!!!!!!!!!!!!!!
 !! TAG-REWRITE RULES
 !!!!!!!!!!!!!!!
 
-tense > tense : ifi past, pri pres, fti fut;
+!exploits the tense marking on the zullen auxiliary verb to pick either future or conditional
+tense > tense_PP : pres fut, past cni;
+
+tense > tense :  pii past, pri pres, pis cni, prs pres;
 
 !!!!!!!!!!!!!!!
 !! MACROS
@@ -33,6 +115,7 @@ det: (if (1.det_type = def or 1.det_type = ind)
       else
          1(det_default));
 
+
 !!!!!!!!!!!!!!!
 !! REDUCTION RULES
 !!!!!!!!!!!!!!!
@@ -41,6 +124,42 @@ det: (if (1.det_type = def or 1.det_type = ind)
 ! Input:  ^ראש<n><m><sg>/hovud<n><nt><sg>$ ^גדול<adj><m><sg>/stor<adj><nt><sg>$
 ! Output: ^stor<adj><nt><sg>$ ^hovud<n><nt><sg>$
 ! NP -> n.$number adj { 2[gender=1.gender, number=1.number] _ 1 } ;
+
+! Detects passive constructions and prefixes the verb accordingly.
+vv  -> vblex.$tense { %1 } |
+      %worden@vaux.$tense vblex.pp { be@pfx %2[tense = 1.tense] } |
+      %worden@vaux.$tense vblex.pp by@pr { be@pfx %2[tense=""] }|
+      %worden@vblex.$tense vblex.pp { be@pfx %2[tense=""] } |
+      %worden@vblex.$tense vblex.pp by@pr { be@pfx %2[tense=""] }|
+      %worden@vblex.$tense * vblex.pp { be@pfx %3[tense=""] _ 2 } |
+      %worden@vblex.$tense * vblex.pp by@pr { be@pfx %3[tense=""] _ 2 }
+;
+
+! Accounts for any adverb modifying the verb.
+
+VP -> vv.$tense { %1 } ;
+
+
+
+DVP -> 20:hebben@vbhaver %VP.pp { u@vbpr.[1.tense].perf _ %2[tense=""] }|
+       20:zullen@vaux.$tense_PP VP.inf { u@vbpr.[1.tense>tense_PP] _ 2 }|
+       20:zullen@vaux.$tense_PP hebben@vbhaver.inf %VP.pp { u@vbpr.[1.tense>tense_PP].perf _ 3 }|
+       VP{ u@vbpr.[1.tense>tense] _ 1 }|
+       [modal]@vbmod VP.inf{ 1 _ u@vbpr.inf _ 2 }|
+       VP niet@adv{ u@vbpr.[1.tense].neg _ 1 };
+
+! Accounts for determiners and removes definite/indefinite articles
+DP -> [articles]@det n { 2 }|
+      det_pos_cor n {1 _ 2 }|
+      det_def n {1 _ 2 }|
+      n { 1 };
+
+NOM -> DP {1}| prn {1}| np {1};
+
+REL -> cnjsub NOM NOM DVP {1 _ 2  _ 4 _ 3 } 
+| cnjsub NOM adj zijn@vblex {1 _ 2  _ 4 _ 3 } 
+| prn.rel.*.nom NOM DVP {hu@cnjsub _ da@prn _ 3  _ 2 }
+| prn.rel.*.acc NOM DVP {hu@cnjsub _ 2 _ 3 _ da@prn } ;
 
 ! Resources:
 ! https://wiki.apertium.org/wiki/Apertium-recursive

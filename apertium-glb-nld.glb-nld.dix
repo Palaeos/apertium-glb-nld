@@ -12,6 +12,7 @@
     <sdef n="vaux"            c="Auxiliary verb"/>
     <sdef n="vbser"           c="'To be' verb"/>
     <sdef n="vbhaver"         c="'To have' verb"/>
+    <sdef n="vbpr"           c="Verbal preposition"/>
     <sdef n="cnjsub"          c="Subordinating conjunction"/>
     <sdef n="cnjcoo"          c="Co-ordinating conjunction"/>
     <sdef n="cnjadv"          c="Adverbial conjunction"/>
@@ -20,6 +21,9 @@
     <sdef n="ij"              c="Interjection"/>
     <sdef n="adj"             c="Adjective"/>
     <sdef n="prn"             c="Pronoun"/>
+
+    <sdef n="pfx"             c="Prefix"/>
+    
 
     <sdef n="attr"            c="Attributive"/>
     <sdef n="top"             c="Toponym"/>
@@ -43,7 +47,9 @@
     <sdef n="ut"              c="Utrum"/>
     <sdef n="f"               c="Feminine"/>
     <sdef n="m"               c="Masculine"/>
+    <sdef n="mf"               c="Masculine or Feminine"/>
     <sdef n="un"              c="No gender"/>
+    <sdef n="GD"              c="Gender to be determined"/>
 
     <sdef n="sg"              c="Singular"/>
     <sdef n="du"              c="Dual"/>
@@ -57,6 +63,11 @@
     <sdef n="acc"             c="Accusative"/>
     <sdef n="gen"             c="Genitive"/>
 
+    <sdef n="obj" 	c="Object"/> 
+    <sdef n="dobj" 	c="Direct Object"/>
+    <sdef n="iobj" 	c="Indirect Object"/>
+    <sdef n="subj" 	c="Subject"/> 
+
     <sdef n="dem"             c="Demonstrative"/>
     <sdef n="itg"             c="Question word / interrogative"/>
     <sdef n="qnt"             c="Quantifier"/>
@@ -67,6 +78,9 @@
     <sdef n="pres"            c="Present"/>
     <sdef n="imp"             c="Imperative"/>
     <sdef n="pret"            c="Preterite"/>
+    <sdef n="past"            c="Past"/>
+    <sdef n="fut"             c="Future"/>
+    <sdef n="cni"             c="Conditional"/>
     <sdef n="pp"              c="Perfect participle"/>
     <sdef n="pprs"            c="Present participle"/>
     <sdef n="pasv"            c="Passive"/>
@@ -103,6 +117,90 @@
 
       <e><re>[.\?;:!…¿¶]</re><p><l><s n="sent"/></l><r><s n="sent"/></r></p></e>
       <e><re>,</re>          <p><l><s n="cm"/></l>  <r><s n="cm"/></r></p></e>
+
+      
+
+    <!-- Co-ordinating conjunction -->
+  <!-- According to http://en.wikipedia.org/wiki/Co-ordinating_conjunction :
+       after, although, if, unless, so that, and because  -->
+
+      <e>       <p><l>ji<s n="cnjcoo"/></l>                 <r>en<s n="cnjcoo"/></r></p></e>
+      <e>       <p><l>or<s n="cnjcoo"/></l>                 <r>of<s n="cnjcoo"/></r></p></e>
+      <e>       <p><l>mas<s n="cnjcoo"/></l>                 <r>maar<s n="cnjcoo"/></r></p></e>
+
+      <e>       <p><l>ki<s n="cnjsub"/></l>                 <r>dat<s n="cnjsub"/></r></p></e>
+
+<e r="LR"><p><l>u<s n="vbpr"/></l><r></r></p></e>
+
+<e>       <p><l>prpers<s n="prn"/><s n="p1"/><s n="ut"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p1"/><s n="mf"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p2"/><s n="ut"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p2"/><s n="mf"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="f"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p3"/><s n="f"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="m"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p3"/><s n="m"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="nt"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p3"/><s n="nt"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p1"/><s n="ut"/><s n="pl"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p1"/><s n="mf"/><s n="pl"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p2"/><s n="ut"/><s n="pl"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p2"/><s n="mf"/><s n="pl"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="ut"/><s n="pl"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p3"/><s n="mf"/><s n="pl"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p2"/><s n="ut"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="subj"/><s n="p2"/><s n="mf"/><s n="sp"/></r></p></e>
+
+<e>       <p><l>prpers<s n="prn"/><s n="p1"/><s n="ut"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p1"/><s n="mf"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p2"/><s n="ut"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p2"/><s n="mf"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="f"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p3"/><s n="f"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="m"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p3"/><s n="m"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="nt"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p3"/><s n="nt"/><s n="sg"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p1"/><s n="ut"/><s n="pl"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p1"/><s n="mf"/><s n="pl"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p2"/><s n="ut"/><s n="pl"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p2"/><s n="mf"/><s n="pl"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p3"/><s n="ut"/><s n="pl"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p3"/><s n="mf"/><s n="pl"/></r></p></e>
+<e>       <p><l>prpers<s n="prn"/><s n="p2"/><s n="ut"/><s n="sg"/></l><r>prpers<s n="prn"/><s n="obj"/><s n="p2"/><s n="mf"/><s n="sp"/></r></p></e>
+
+
+
+      <e>       <p><l><s n = "det"/></l>   <r>een<s n = "det"/><s n = "ind"/></r></p></e>
+      <e>       <p><l><s n = "det"/></l>   <r>de<s n = "det"/><s n = "def"/></r></p></e>
+
+      <e>       <p><l>abil<s n = "vbmod"/></l>   <r>kunnen<s n = "vbmod"/></r></p></e>
+      <e>       <p><l>musi<s n = "vbmod"/></l>   <r>moeten<s n = "vbmod"/></r></p></e>
+      <e>       <p><l>vole<s n = "vblex"/></l>   <r>willen<s n = "vbmod"/></r></p></e>
+      <e>       <p><l>ingay<s n = "vblex"/></l>   <r>zullen<s n = "vbmod"/></r></p></e>
+      <e>       <p><l><s n = "vblex"/></l>   <r>zullen<s n = "vaux"/></r></p></e>
+      <e>       <p><l>harizin<s n = "vblex"/></l>   <r>durfen<s n = "vbmod"/></r></p></e>
+      <e>       <p><l>suki<s n = "vblex"/></l>   <r>mogen<s n = "vbmod"/></r></p></e>
+
+      <e>       <p><l>myaw<s n = "n"/></l>   <r>kat<s n = "n"/><s n = "f"/></r></p></e>
+      <e>       <p><l>bwaw<s n = "n"/></l>   <r>hond<s n = "n"/><s n = "m"/></r></p></e>
+      <e>       <p><l>ababil<s n = "n"/></l>   <r>zwaluw<s n = "n"/><s n = "f"/></r></p></e>
+      <e>       <p><l>kastilo<s n = "n"/></l>   <r>kasteel<s n = "n"/><s n = "n"/></r></p></e>
+      <e>       <p><l>ergo<s n = "n"/></l>   <r>werk<s n = "n"/><s n = "f"/></r></p></e>
+      <e>       <p><l>texto<s n = "n"/></l>   <r>tekst<s n = "n"/><s n = "f"/></r></p></e>
+      <e>       <p><l>cengu<s n = "n"/></l>   <r>verdieping<s n = "n"/><s n = "f"/></r></p></e>
+      <e>       <p><l>dixan<s n = "n"/></l>   <r>vloer<s n = "n"/><s n = "f"/></r></p></e>
+      <e>       <p><l>manwangu<s n = "n"/></l>   <r>koning<s n = "n"/><s n = "f"/></r></p></e>
+
+      <e>       <p><l>sen<s n = "vblex"/></l>   <r>zijn<s n = "vblex"/></r></p></e>
+      <e>       <p><l>hare<s n = "vblex"/></l>   <r>hebben<s n = "vblex"/></r></p></e>
+      <e>       <p><l>sencu<s n = "vblex"/></l>   <r>worden<s n = "vblex"/></r></p></e>
+      <e>       <p><l>sen<s n = "vblex"/></l>   <r>zijn<s n = "vbser"/></r></p></e>
+      <e>       <p><l>hare<s n = "vblex"/></l>   <r>hebben<s n = "vbhaver"/></r></p></e>
+      <e>       <p><l>oko<s n = "vblex"/></l>   <r>zien<s n = "vblex"/></r></p></e>
+      <e>       <p><l>suyon<s n = "vblex"/></l>   <r>zwemmen<s n = "vblex"/></r></p></e>
+      <e>       <p><l>name<s n = "vblex"/></l>   <r>heten<s n = "vblex"/></r></p></e>
+      <e>       <p><l>fley<s n = "vblex"/></l>   <r>vliegen<s n = "vblex"/></r></p></e>
+      <e>       <p><l>yam<s n = "vblex"/></l>   <r>eten<s n = "vblex"/></r></p></e>
+      <e>       <p><l>kone<s n = "vblex"/></l>   <r>kennen<s n = "vblex"/></r></p></e>
+      <e>       <p><l>jixi<s n = "vblex"/></l>   <r>weten<s n = "vblex"/></r></p></e>
+      <e>       <p><l>fikir<s n = "vblex"/></l>   <r>denken<s n = "vblex"/></r></p></e>
+      <e>       <p><l>aham<s n = "vblex"/></l>   <r>begrijpen<s n = "vblex"/></r></p></e>
+      <e>       <p><l>leven<s n = "vblex"/></l>   <r>jiwa<s n = "vblex"/></r></p></e>
+
+
+
+      <e>       <p><l>bon<s n = "vblex"/></l>   <r>goed<s n = "adj"/></r></p></e>
+      <e>       <p><l>bur<s n = "vblex"/></l>   <r>slecht<s n = "adj"/></r></p></e>
+      <e>       <p><l>velosi<s n = "vblex"/></l>   <r>snell<s n = "adj"/></r></p></e>
+      <e>       <p><l>lungo<s n = "vblex"/></l>   <r>lang<s n = "adj"/></r></p></e>
+
+      <e>       <p><l>no<s n = "adv"/></l>   <r>niet<s n = "adv"/></r></p></e>
+      <e>       <p><l>fe lutuf<s n = "adv"/></l>   <r>alstublieft<s n = "adv"/></r></p></e>
+
    </section>
 </dictionary>
 
