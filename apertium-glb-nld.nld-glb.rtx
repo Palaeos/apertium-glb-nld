@@ -30,13 +30,14 @@ tense_PP = pres past;
 !! OUTPUT PATTERNS
 !!!!!!!!!!!!!!!
 
-n: _;
-np: _;
+n: _.gender_GLB;
+np: _.gender_GLB;
 pfx: _;
 prn: _.person.gender_GLB.number;
 det_pos: _.<pos>.person.gender_GLB.number;
 det_pos_cor: _.<pos>;
 det_qnt_cor: _.<qnt>;
+det_ind_cor: _.<qnt>;
 det_def: _;
 
 
